@@ -11,6 +11,10 @@ describe('Thermostat', function() {
     it('starts at 20 degrees', function() {
       expect(thermostat.temperature).toEqual(20);
     });
+
+    it('minimum temperature is 10 degrees', function() {
+      expect(thermostat.minimumTemp).toEqual(10);
+    });
   });
 
   describe('changing temperature', function() {
@@ -25,9 +29,9 @@ describe('Thermostat', function() {
       expect(thermostat.temperature).toEqual(19);
     });
 
-    it('minimum temperature is 10 degrees', function() {
+    it('should not go under 10 degrees', function() {
       thermostat.decreaseTemperature(11);
-      expect(thermostat.temperature).toEqual("below minimum temperature!")
+      expect(thermostat.temperature).toEqual(10);
     });
 
   });
