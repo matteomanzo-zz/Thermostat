@@ -52,6 +52,12 @@ describe('Thermostat', function() {
       expect(thermostat.powerSaving).toBe(true);
     });
 
+    it('should bring the temperature to 25 when powerSaving is activated while in high-usage', function() {
+      thermostat.powerSavingToggle();
+      thermostat.increaseTemperature(10);
+      thermostat.powerSavingToggle();
+      expect(thermostat.temperature).toEqual(25);
+    });
   });
 
   describe('power saving mode', function() {
