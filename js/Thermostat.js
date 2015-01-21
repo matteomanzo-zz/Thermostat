@@ -1,9 +1,9 @@
 var Thermostat = function() {
   this.temperature = 20;
   this.minimumTemp = 10;
-  this.maximumTemp = 25;
   this.powerSaving = true;
-
+  this.savingOffMaxTemp = 32;
+  this.savingOnMaxTemp = 25;
 };
 
 Thermostat.prototype.increaseTemperature = function(changeTempBy) {
@@ -24,12 +24,6 @@ Thermostat.prototype.decreaseTemperature = function(changeTempBy) {
   };
 };
 
-Thermostat.prototype.powerSavingOff = function() {
-  this.powerSaving = false;
-  this.maximumTemp = 32;
+Thermostat.prototype.powerSavingToggle = function() {
+  (this.powerSaving) ? this.powerSaving = false : this.powerSaving = true;
 };
-// Thermostat.prototype.? = function(changeTempBy) {
-//   if ((this.temperature + changeTempBy) > this.minimumTemp){
-//     return
-//   }
-// };

@@ -36,21 +36,33 @@ describe('Thermostat', function() {
 
   });
 
+  describe('toggle button', function() {
+
+    it('should change the savinPower status from true to false', function() {
+      expect(thermostat.powerSaving).toBe(true);
+      thermostat.powerSavingToggle();
+      expect(thermostat.powerSaving).toBe(false);
+    });
+
+    it('should change the savingPower status from true to false and to true again', function() {
+      expect(thermostat.powerSaving).toBe(true);
+      thermostat.powerSavingToggle();
+      expect(thermostat.powerSaving).toBe(false);
+      thermostat.powerSavingToggle();
+      expect(thermostat.powerSaving).toBe(true);
+    });
+
+  });
+
   describe('power saving mode', function() {
 
     it('should be on by default', function() {
       expect(thermostat.powerSaving).toEqual(true);
     });
 
-    it('should be able to be switched on and off', function() {
-      expect(thermostat.powerSaving).toEqual(true);
-      thermostat.powerSavingOff();
-      expect(thermostat.powerSaving).toEqual(false);
-    });
-
     it('max temperature should be 32 degrees when powerSaving off', function() {
       expect(thermostat.powerSaving).toEqual(true);
-      thermostat.powerSavingOff();
+      thermostat.powerSavingToggle();
       thermostat.increaseTemperature(15);
       expect(thermostat.temperature).toEqual(32);
     });
@@ -60,8 +72,6 @@ describe('Thermostat', function() {
       thermostat.increaseTemperature(15);
       expect(thermostat.temperature).toEqual(25);
     });
-
-
 
   });
 
