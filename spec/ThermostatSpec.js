@@ -38,14 +38,19 @@ describe('Thermostat', function() {
 
   describe('power saving mode', function() {
 
-    it('should be able to be switched on and off', function() {
-      expect(thermostat.powerSaving).toEqual(false);
-      thermostat.powerSavingOn();
+    it('should be on by default', function() {
       expect(thermostat.powerSaving).toEqual(true);
     });
 
-    it('max temperature should be 32 degrees when powerSaving off', function() {
+    it('should be able to be switched on and off', function() {
+      expect(thermostat.powerSaving).toEqual(true);
+      thermostat.powerSavingOff();
       expect(thermostat.powerSaving).toEqual(false);
+    });
+
+    it('max temperature should be 32 degrees when powerSaving off', function() {
+      expect(thermostat.powerSaving).toEqual(true);
+      thermostat.powerSavingOff();
       thermostat.increaseTemperature(15);
       expect(thermostat.temperature).toEqual(32);
     });
