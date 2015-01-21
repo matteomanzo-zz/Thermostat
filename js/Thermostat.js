@@ -37,12 +37,12 @@ Thermostat.prototype.reset = function() {
 
 Thermostat.prototype.colorStatus = function() {
   if (this.temperature < 18) {
-    return "green"
+    return "low-usage"
   }
   else if (this.temperature > 25) {
-    return "red"
+    return "high-usage"
   }
   else {
-    return "yellow"
+    return "medium-usage"
   }
 };

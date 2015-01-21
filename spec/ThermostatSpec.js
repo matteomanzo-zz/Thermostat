@@ -85,20 +85,20 @@ describe('Thermostat', function() {
 
   describe('the color status', function() {
 
-    it('should be green if the temperature is < 18', function(){
+    it('should display low-usage if the temperature is < 18', function(){
       thermostat.decreaseTemperature(3);
-      expect(thermostat.colorStatus()).toEqual('green');
+      expect(thermostat.colorStatus()).toEqual('low-usage');
     });
 
-    it('should be yellow if the temperature is inbetween 18 and 25', function(){
+    it('should display medium-usage if the temperature is inbetween 18 and 25', function(){
       expect(thermostat.temperature).toEqual(20);
-      expect(thermostat.colorStatus()).toEqual('yellow');
+      expect(thermostat.colorStatus()).toEqual('medium-usage');
     });
 
-    it('should be red if the temperature is > 25', function(){
+    it('should display high-usage if the temperature is > 25', function(){
       thermostat.powerSavingToggle();
       thermostat.increaseTemperature(6);
-      expect(thermostat.colorStatus()).toEqual('red');
+      expect(thermostat.colorStatus()).toEqual('high-usage');
     });
 
   });
