@@ -25,6 +25,7 @@ $(document).ready(function() {
   $('.PSM-toggle').on('click', function() {
     thermostat.powerSavingToggle();
     updateTemperature();
+    $(this).css('color','red');
   });
 
 });
