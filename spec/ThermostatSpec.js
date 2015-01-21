@@ -57,22 +57,48 @@ describe('Thermostat', function() {
   describe('power saving mode', function() {
 
     it('should be on by default', function() {
-      expect(thermostat.powerSaving).toEqual(true);
+      expect(thermostat.powerSaving).toBe(true);
     });
 
     it('max temperature should be 32 degrees when powerSaving off', function() {
-      expect(thermostat.powerSaving).toEqual(true);
+      expect(thermostat.powerSaving).toBe(true);
       thermostat.powerSavingToggle();
       thermostat.increaseTemperature(15);
       expect(thermostat.temperature).toEqual(32);
     });
 
     it('max temperature should be 25 degrees when powerSaving on', function() {
-      expect(thermostat.powerSaving).toEqual(true);
+      expect(thermostat.powerSaving).toBe(true);
       thermostat.increaseTemperature(15);
       expect(thermostat.temperature).toEqual(25);
     });
-
   });
 
+  describe('the reset button', function() {
+
+    it('should set the temperature to 20', function() {
+      thermostat.increaseTemperature(5);
+      thermostat.reset();
+      expect(thermostat.temperature).toEqual(20);
+    });
+  });
+
+  describe('the color status', function() {
+
+    it('should be green if the temperature is < 18', function(){
+      thermostat.decreaseTemperature(3);
+      expect(thermostat.colorStatus).toEqual('green');
+    });
+
+    it('should be yellow if the temperature is inbetween 18 and 25', function(){
+      expect(thermostat.temperature).toEqual(20);
+      expect(thermostat.colorStatus).toEqual('yellow');
+    });
+
+    it('should be red if the temperature is > 25', function(){
+      thermostat.increaseTemperature(5);
+      expect(thermostat.colorStatus).toEqual('red');
+    });
+
+  });
 });

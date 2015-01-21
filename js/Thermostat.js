@@ -31,3 +31,6 @@ Thermostat.prototype.powerSavingToggle = function() {
   (this.powerSaving) ? this.powerSaving = false : this.powerSaving = true;
 };
 
+Thermostat.prototype.reset = function() {
+  this.temperature = 20;
+};
