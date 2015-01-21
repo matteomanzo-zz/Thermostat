@@ -34,3 +34,15 @@ Thermostat.prototype.powerSavingToggle = function() {
 Thermostat.prototype.reset = function() {
   this.temperature = 20;
 };
+
+Thermostat.prototype.colorStatus = function() {
+  if (this.temperature < 18) {
+    return "green"
+  }
+  else if (this.temperature > 25) {
+    return "red"
+  }
+  else {
+    return "yellow"
+  }
+};

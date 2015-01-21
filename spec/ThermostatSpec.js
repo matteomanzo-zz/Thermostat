@@ -87,17 +87,18 @@ describe('Thermostat', function() {
 
     it('should be green if the temperature is < 18', function(){
       thermostat.decreaseTemperature(3);
-      expect(thermostat.colorStatus).toEqual('green');
+      expect(thermostat.colorStatus()).toEqual('green');
     });
 
     it('should be yellow if the temperature is inbetween 18 and 25', function(){
       expect(thermostat.temperature).toEqual(20);
-      expect(thermostat.colorStatus).toEqual('yellow');
+      expect(thermostat.colorStatus()).toEqual('yellow');
     });
 
     it('should be red if the temperature is > 25', function(){
-      thermostat.increaseTemperature(5);
-      expect(thermostat.colorStatus).toEqual('red');
+      thermostat.powerSavingToggle();
+      thermostat.increaseTemperature(6);
+      expect(thermostat.colorStatus()).toEqual('red');
     });
 
   });
