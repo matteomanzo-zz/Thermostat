@@ -1,5 +1,9 @@
 main {
+
+
   margin: 0 auto;
   width: 80%;
   background-color: blue;
+  position: fixed;
+  left: 50%
 }
