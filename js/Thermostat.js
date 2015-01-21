@@ -7,8 +7,11 @@ var Thermostat = function() {
 };
 
 Thermostat.prototype.increaseTemperature = function(changeTempBy) {
-  if ((this.temperature + changeTempBy) > this.maximumTemp) {
-    return this.temperature = this.maximumTemp;
+  if (((this.temperature + changeTempBy) > this.savingOnMaxTemp) && this.powerSaving){
+    return this.temperature = this.savingOnMaxTemp;
+  }
+  else if (((this.temperature + changeTempBy) > this.savingOffMaxTemp) && this.powerSaving === false) {
+    return this.temperature = this.savingOffMaxTemp;
   }
   else {
     return this.temperature += changeTempBy;
@@ -27,3 +30,4 @@ Thermostat.prototype.decreaseTemperature = function(changeTempBy) {
 Thermostat.prototype.powerSavingToggle = function() {
   (this.powerSaving) ? this.powerSaving = false : this.powerSaving = true;
 };
+
