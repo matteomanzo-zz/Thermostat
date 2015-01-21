@@ -76,10 +76,12 @@ describe('Thermostat', function() {
 
   describe('the reset button', function() {
 
-    it('should set the temperature to 20', function() {
+    it('should set the temperature to 20 and go into PSM', function() {
       thermostat.increaseTemperature(5);
+      thermostat.powerSavingToggle();
       thermostat.reset();
       expect(thermostat.temperature).toEqual(20);
+      expect(thermostat.powerSaving).toBe(true);
     });
   });
 
