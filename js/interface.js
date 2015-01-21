@@ -1,28 +1,30 @@
-console.log("Hello");
-
 var thermostat = new Thermostat();
 
-$(document).ready(function() {
+var updateTemperature = function() {
   $('#temperature').text(thermostat.temperature);
+};
+
+$(document).ready(function() {
+  updateTemperature();
 
   $('.increase-temp').on('click', function() {
     thermostat.increaseTemperature(1);
-    $('#temperature').text(thermostat.temperature);
+    updateTemperature();
   });
 
   $('.decrease-temp').on('click', function() {
     thermostat.decreaseTemperature(1);
-    $('#temperature').text(thermostat.temperature);
+    updateTemperature();
   });
 
   $('.reset').on('click', function() {
     thermostat.reset();
-    $('#temperature').text(thermostat.temperature);
+    updateTemperature();
   });
 
   $('.PSM-toggle').on('click', function() {
     thermostat.powerSavingToggle();
-    $('#temperature').text(thermostat.temperature);
+    updateTemperature();
   });
 
 });
