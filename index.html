@@ -3,21 +3,28 @@
   <head>
     <title>Thermostat</title>
     <meta charset='utf-8'>
+    <link rel='stylesheet' href='css/normalize.css'>
     <link rel='stylesheet' href='css/styles.css'>
   </head>
 
   <body>
     <main class="grid">
-      <h1 class="medium-usage">
-        <span id="temperature">??</span>℃
-      </h1>
-      <span class='temp-buttons'>
-        <button class="increase-temp">+</button>
-        <button class="decrease-temp">-</button>
-        <button class="reset">↺</button>
-      </span>
-      <br>
-      <button class="PSM-toggle">PSM Toggle</button>
+      <section id="left">
+        <section id="container">
+          <h1 class="medium-usage">
+            <span id="temperature">??</span>
+          </h1>
+          <p class='temp-buttons'>
+            <button class="increase-temp">+</button>
+            <button class="decrease-temp">-</button>
+            <button class="reset">↺</button>
+          </p>
+          <button class="PSM-toggle"><span id="status">ON</span></button>
+        </section>
+      </section>
+      <section id="right">
+        <img src="degrees.svg">
+      </section>
     </main>
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="js/Thermostat.js"></script>

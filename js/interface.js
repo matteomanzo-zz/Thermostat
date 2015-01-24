@@ -2,6 +2,8 @@ var thermostat = new Thermostat();
 
 var updateTemperature = function() {
   $('#temperature').text(thermostat.temperature);
+  $('#temperature').attr('class', thermostat.colorStatus());
+  $('#deg').attr('class', thermostat.colorStatus());
 };
 
 $(document).ready(function() {
@@ -20,12 +22,13 @@ $(document).ready(function() {
   $('.reset').on('click', function() {
     thermostat.reset();
     updateTemperature();
+    $('.PSM-toggle').text(thermostat.toggleStatus);
   });
 
   $('.PSM-toggle').on('click', function() {
     thermostat.powerSavingToggle();
     updateTemperature();
-    $(this).css('color','red');
+    $('.PSM-toggle').text(thermostat.toggleStatus);
   });
 
 });

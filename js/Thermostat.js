@@ -4,6 +4,7 @@ var Thermostat = function() {
   this.powerSaving = true;
   this.savingOffMaxTemp = 32;
   this.savingOnMaxTemp = 25;
+  this.toggleStatus = "ON";
 };
 
 Thermostat.prototype.increaseTemperature = function(changeTempBy) {
@@ -27,14 +28,16 @@ Thermostat.prototype.decreaseTemperature = function(changeTempBy) {
   };
 };
 
-Thermostat.prototype.powerSavingToggle = function() {
-  (this.powerSaving) ? (this.powerSaving = false) : (this.powerSaving = true)
-  if ((this.powerSaving) && (this.temperature > 25)) {this.temperature = this.savingOnMaxTemp};
-};
-
 Thermostat.prototype.reset = function() {
   this.temperature = 20;
   this.powerSaving = true;
+  this.toggleStatus = "ON";
+};
+
+Thermostat.prototype.powerSavingToggle = function() {
+  (this.powerSaving) ? (this.powerSaving = false) : (this.powerSaving = true)
+  if ((this.powerSaving) && (this.temperature > 25)) {this.temperature = this.savingOnMaxTemp};
+  (this.powerSaving) ? (this.toggleStatus = "ON") : (this.toggleStatus = "OFF")
 };
 
 Thermostat.prototype.colorStatus = function() {
