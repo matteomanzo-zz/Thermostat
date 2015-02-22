@@ -2,6 +2,8 @@ Thermostat
 ==========
 Create a thermostat using Javascript
 
+![img]('thermo.png')
+
 # Features
 
 - Thermostat starts at 20 degrees
