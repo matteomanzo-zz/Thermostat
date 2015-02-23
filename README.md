@@ -2,7 +2,7 @@ Thermostat
 ==========
 Create a thermostat using Javascript
 
-![img]('thermo.png')
+![img](public/thermo.png)
 
 # Features
 
